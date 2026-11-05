@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Explore Panchkula – AI Local Tourism Guide</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#faf6ee;--card:#fff;--tx:#23201a;--mu:#6b655a;--ac:#b4501e;--ac2:#2f6b4f;--bd:#e6dfd0;--soft:#f3ece0;color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--card:#221f17;--tx:#f1ebdd;--mu:#a59d8b;--ac:#e8895a;--ac2:#6fc29a;--bd:#38332640;--soft:#2b2719;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17150f;--card:#221f17;--tx:#f1ebdd;--mu:#a59d8b;--ac:#e8895a;--ac2:#6fc29a;--bd:#383326;--soft:#2b2719;color-scheme:dark}
+*{box-sizing:inherit}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .4em}
+.w{max-width:1000px;margin:auto;padding:0 18px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--bd);z-index:5}
+nav .w{display:flex;gap:16px;align-items:center;overflow-x:auto;padding:10px 18px;white-space:nowrap}
+nav b{font-family:Georgia,serif;color:var(--ac);margin-right:auto}nav a{color:var(--mu);text-decoration:none;font-size:14px}
+.hero{padding:44px 0 28px;background:linear-gradient(135deg,var(--soft),var(--bg))}
+.hero h1{font-size:clamp(30px,6vw,52px)}.hero p{max-width:620px;color:var(--mu)}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:10px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.o{background:none;color:var(--ac);border:1.5px solid var(--ac)}
+section{padding:34px 0}
+.g{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+.c h3{font-size:18px}.c p{margin:.3em 0;color:var(--mu);font-size:14px}
+.tag{font-size:12px;background:var(--soft);color:var(--ac2);border-radius:20px;padding:2px 9px;margin-right:4px;display:inline-block}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.chip{border:1.5px solid var(--bd);background:var(--card);color:var(--tx);border-radius:20px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}
+.chip.on{background:var(--ac2);border-color:var(--ac2);color:#fff}
+.form{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:8px}
+label{font-size:13px;color:var(--mu);display:block}
+input,select,textarea{width:100%;font:inherit;padding:9px;border-radius:9px;border:1.5px solid var(--bd);background:var(--card);color:var(--tx)}
+.pl{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--bd);border-radius:12px;background:var(--card);margin-bottom:8px}
+.pl input{width:auto;margin-top:5px}.pl.off{opacity:.55}.cost{margin-left:auto;font-weight:700;color:var(--ac);white-space:nowrap}
+.sum{background:var(--soft);border-radius:14px;padding:16px;margin-top:12px}
+.sum .row{display:flex;justify-content:space-between;padding:3px 0;font-size:15px}.sum .tot{font-weight:700;font-size:18px;border-top:1px solid var(--bd);margin-top:6px;padding-top:8px}
+.ok{color:var(--ac2)}.bad{color:#c0392b}
+#chat{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+#log{max-height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;margin-bottom:10px}
+.m{padding:9px 13px;border-radius:12px;max-width:88%;white-space:pre-wrap;font-size:15px}
+.m.u{background:var(--ac);color:#fff;align-self:flex-end}.m.a{background:var(--soft)}
+.ask{display:flex;gap:8px}small{color:var(--mu)}
+footer{padding:26px 0;color:var(--mu);font-size:13px;border-top:1px solid var(--bd)}
+</style></head><body>
+<nav><div class="w"><b>Explore Panchkula</b><a href="#planner">Budget Planner</a><a href="#guide">AI Guide</a><a href="#places">Places</a><a href="#circuits">Itineraries</a><a href="#culture">Culture &amp; Food</a></div></nav>
+<header class="hero"><div class="w"><h1>Panchkula is more than a planned city.</h1>
+<p>Mughal gardens, a thousand-year-old temple site, Shivalik hills, lakes and Haryanvi flavours. Tell us your budget and interests; our AI guide plans what to visit and how to get there.</p>
+<a class="btn" href="#planner">Plan within my budget</a> <a class="btn o" href="#guide">Ask the AI guide</a></div></header>
+
+<section id="planner"><div class="w"><h2>Budget Planner</h2>
+<small>Either enter what you have and we pick places to fit, or tick places and see the budget you need.</small>
+<div class="form" style="margin-top:12px">
+<div><label>Total budget (₹)</label><input id="bud" type="number" value="3000" min="0"></div>
+<div><label>People</label><input id="ppl" type="number" value="2" min="1"></div>
+<div><label>Days</label><input id="days" type="number" value="1" min="1" max="4"></div>
+<div><label>Getting around</label><select id="tr"><option value="own">Own car/bike</option><option value="bus" selected>Bus + local auto</option><option value="cab">Hired cab</option></select></div>
+<div><label>Food style</label><select id="fd"><option value="250">Dhaba / street food</option><option value="500" selected>Mixed</option><option value="900">Restaurants</option></select></div></div>
+<div class="chips" id="chips"></div>
+<button class="btn" id="auto">Pick places for my budget</button>
+<div id="list" style="margin-top:16px"></div><div class="sum" id="sum"></div>
+<small>Costs are rough estimates for planning (entry fees and fares change), so confirm locally before travelling.</small></div></section>
+
+<section id="guide"><div class="w"><h2>AI Local Guide</h2>
+<div id="chat"><div id="log"><div class="m a">Namaste! I can suggest a plan for your budget, explain how to reach a place or tell its story. Try a question below.</div></div>
+<div class="chips" id="qs"></div>
+<div class="ask"><input id="q" placeholder="e.g. I have ₹2000 for 2 people, what can we see?"><button class="btn" id="send">Ask</button></div>
+<small id="note"></small></div></div></section>
+
+<section id="places"><div class="w"><h2>Places to Explore</h2><div class="g" id="grid"></div></div></section>
+<section id="circuits"><div class="w"><h2>Ready-made Circuits</h2><div class="g">
+<div class="c"><h3>Heritage day</h3><p>Yadavindra Gardens → Bhima Devi Museum → Nahan Kothi (check access) → Kali Mata Mandir, Kalka → Kaushalya Dam at evening.</p></div>
+<div class="c"><h3>Nature &amp; adventure</h3><p>Morni Hills → Morni Fort → Tikkar Taal → birdwatching → local food and sunset.</p></div>
+<div class="c"><h3>Spiritual day</h3><p>Mansa Devi → Nada Sahib → Saketri Shiv Mandir → Chandi Mandir → Koohni Sahib.</p></div>
+<div class="c"><h3>Family relaxation</h3><p>Cactus Garden → Town Park → market food stroll → Yadavindra Gardens.</p></div></div></div></section>
+<section id="culture"><div class="w"><h2>Culture, Food &amp; Hidden Ideas</h2><div class="g">
+<div class="c"><h3>Pinjore Mango Mela</h3><p>Seasonal festival at Yadavindra Gardens with mango varieties, food and competitions.</p></div>
+<div class="c"><h3>Haryanvi folk</h3><p>Phag and Dhamal dances, folk music and traditional costumes. Phulkari and pottery crafts.</p></div>
+<div class="c"><h3>Eat like a local</h3><p>Bajra roti, Haryanvi kadhi, churma, lassi and chaach. Try markets in Sectors 5, 8, 9, Pinjore and Kalka.</p></div>
+<div class="c"><h3>Nearby Tricity</h3><p>Outside the district: Rock Garden, Sukhna Lake, Rose Garden, Chhatbir Zoo.</p></div></div></div></section>
+<footer><div class="w">Content based on Panchkula tourism and government destination-planning records. Verify access, timings and facilities before you travel.</div></footer>
+
+<script>
+const P=[
+{n:"Yadavindra (Pinjore) Gardens",c:"heritage",f:50,h:2.5,d:"17th-century Mughal-style garden with seven terraces, fountains, Shish Mahal, Rang Mahal and Jal Mahal.",how:"Pinjore, on the Chandigarh–Shimla highway. Frequent buses from Panchkula/Chandigarh; short auto ride from Pinjore stand.",t:"Heritage walk, photography"},
+{n:"Bhima Devi Temple Museum",c:"heritage",f:20,h:1.5,d:"9th–11th century carved temple remains, called the Khajuraho of North India.",how:"Near Pinjore. Combine with the Gardens by auto.",t:"Sculptures, history"},
+{n:"Morni Fort",c:"heritage",f:0,h:1.5,d:"Hilltop fort tied to the Shivalik landscape and local history.",how:"Via Morni. Cab or own vehicle works best.",t:"Fort, views"},
+{n:"Nahan Kothi",c:"heritage",f:0,h:1,d:"Historic building listed in Panchkula tourism plans.",how:"Check access before visiting.",t:"Architecture"},
+{n:"Mata Mansa Devi Temple",c:"spiritual",f:0,h:2,d:"Major Shakti temple and pilgrimage site, busiest in Navratri.",how:"Local bus or auto from Panchkula; cabs are easy.",t:"Pilgrimage"},
+{n:"Gurudwara Nada Sahib",c:"spiritual",f:0,h:1.5,d:"Linked with Guru Gobind Singh Ji’s 1688 visit; near the Ghaggar with community langar.",how:"Auto or cab from Panchkula; free langar.",t:"Sikh heritage"},
+{n:"Kali Mata Mandir, Kalka",c:"spiritual",f:0,h:1,d:"Important temple of Goddess Kali in Kalka.",how:"Kalka is a train and bus hub, so reach by bus or rail.",t:"Pilgrimage"},
+{n:"Chandi Mandir",c:"spiritual",f:0,h:1,d:"Temple of Goddess Chandi, part of the area’s identity.",how:"Auto or cab.",t:"Local faith"},
+{n:"Saketri Shiv Mandir",c:"spiritual",f:0,h:1,d:"Shiva temple, lively at Maha Shivratri and Sawan.",how:"Auto or cab.",t:"Festivals"},
+{n:"Gurudwara Koohni Sahib",c:"spiritual",f:0,h:1,d:"Peaceful Sikh site in district tourism lists.",how:"Auto or cab.",t:"Quiet visit"},
+{n:"Morni Hills",c:"nature",f:0,h:5,d:"Haryana’s only recognised hill station with forests and panoramic viewpoints.",how:"About 40 km from Panchkula via Raipur Rani. Limited buses, so hire a cab or drive.",t:"Trekking, cycling, birds"},
+{n:"Tikkar Taal",c:"nature",f:0,h:2,d:"Twin lakes in the hills, great for picnics; boating where operational.",how:"On the Morni route, so take a cab or own vehicle.",t:"Picnic, boating"},
+{n:"Kaushalya Dam",c:"nature",f:0,h:1.5,d:"Scenic reservoir and bird habitat.",how:"Near Pinjore; auto or cab. Respect restricted areas.",t:"Birdwatching"},
+{n:"Nepli Forest",c:"nature",f:0,h:2,d:"Shivalik foothill forest for walks and wildlife.",how:"Own vehicle or cab. Check entry permissions.",t:"Forest walk"},
+{n:"National Cactus Garden",c:"family",f:30,h:1.5,d:"Large collection of cacti and succulents.",how:"Inside Panchkula; auto or local bus.",t:"Botany, kids"},
+{n:"Town Park / Yavanika Park",c:"family",f:0,h:1.5,d:"Green city park for walks, yoga and picnics.",how:"Inside Panchkula; walk or auto.",t:"Free, relaxed"},
+{n:"Markets & food walk",c:"food",f:0,h:2,d:"Sector 5, 8, 9, Pinjore and Kalka markets for street food and crafts.",how:"Walk or auto within Panchkula.",t:"Street food"},
+{n:"Panchkula Golf Course",c:"family",f:600,h:3,d:"Golf, subject to membership and visitor rules.",how:"Within Panchkula.",t:"Sports"}];
+const CATS={heritage:"Heritage",spiritual:"Spiritual",nature:"Nature",family:"Family",food:"Food"};
+const sel=new Set(),pick=new Set(["heritage","nature"]),$=id=>document.getElementById(id);
+const trCost={own:{d:400},bus:{d:150},cab:{d:1800}};
+const inr=n=>"₹"+Math.round(n).toLocaleString("en-IN");
+$("chips").innerHTML=Object.entries(CATS).map(([k,v])=>`<button class="chip ${pick.has(k)?"on":""}" data-k="${k}">${v}</button>`).join("");
+$("chips").onclick=e=>{const k=e.target.dataset.k;if(!k)return;pick.has(k)?pick.delete(k):pick.add(k);e.target.classList.toggle("on")};
+function calc(){const pp=+$("ppl").value||1,d=+$("days").value||1,bud=+$("bud").value||0,mode=$("tr").value;
+ const ch=[...sel].map(i=>P[i]);const hrs=ch.reduce((a,p)=>a+p.h,0);
+ const entry=ch.reduce((a,p)=>a+p.f*pp,0);
+ let t=trCost[mode].d*d*(mode==="bus"?pp:1);const food=+$("fd").value*pp*d;
+ const tot=entry+t+food,left=bud-tot;
+ $("sum").innerHTML=`<div class="row"><span>Entry fees</span><b>${inr(entry)}</b></div><div class="row"><span>Transport (${d} day)</span><b>${inr(t)}</b></div><div class="row"><span>Food</span><b>${inr(food)}</b></div><div class="row tot"><span>Budget needed</span><span>${inr(tot)}</span></div><div class="row"><span>Your budget</span><span class="${left>=0?"ok":"bad"}">${left>=0?inr(left)+" to spare":inr(-left)+" over"}</span></div><small>${ch.length} places, about ${hrs.toFixed(1)} hrs of sightseeing${hrs>8*d?" – too packed, add a day":""}.</small>`}
+function render(){$("list").innerHTML=P.map((p,i)=>`<label class="pl ${sel.has(i)?"":"off"}"><input type="checkbox" data-i="${i}" ${sel.has(i)?"checked":""}><span><b>${p.n}</b> <span class="tag">${CATS[p.c]}</span><br><small>${p.how}</small></span><span class="cost">${p.f?inr(p.f)+"/pp":"Free"}</span></label>`).join("");calc()}
+$("list").onchange=e=>{const i=+e.target.dataset.i;e.target.checked?sel.add(i):sel.delete(i);render()};
+["bud","ppl","days","tr","fd"].forEach(i=>$(i).oninput=calc);
+$("auto").onclick=()=>{sel.clear();const d=+$("days").value||1,pp=+$("ppl").value||1;
+ const base=trCost[$("tr").value].d*d*($("tr").value==="bus"?pp:1)+(+$("fd").value)*pp*d;
+ let spend=base,hrs=0;
+ const c=P.map((p,i)=>({p,i})).filter(x=>pick.has(x.p.c)).sort((a,b)=>(a.p.f-b.p.f)||(b.p.h-a.p.h));
+ for(const x of c){const cost=x.p.f*pp;if(spend+cost<=+$("bud").value&&hrs+x.p.h<=8*d){sel.add(x.i);spend+=cost;hrs+=x.p.h}}
+ render()};
+$("grid").innerHTML=P.map(p=>`<div class="c"><span class="tag">${CATS[p.c]}</span><h3>${p.n}</h3><p>${p.d}</p><p><b>How:</b> ${p.how}</p><p>${p.t} · ~${p.h}h · ${p.f?inr(p.f)+"/pp":"Free"}</p></div>`).join("");
+render();
+// AI guide
+const CTX=JSON.stringify(P.map(p=>({name:p.n,type:p.c,entry_inr_pp:p.f,hours:p.h,about:p.d,how_to_reach:p.how})));
+const SYS=`You are a friendly local tourism guide for Panchkula, Haryana, India (incl. Pinjore, Kalka, Morni). Use ONLY these places and estimates; costs are rough, say to verify locally. Cost model per day: transport own vehicle ~₹400, bus+auto ~₹150/person, cab ~₹1800; food ₹250/500/900 per person. Given a budget, group size and days, propose an itinerary with order, time, a cost breakdown and how to reach each place. If budget is too low, suggest free options (temples, gurudwaras, Town Park, markets). If asked what budget is needed, calculate it. Keep answers concise and warm. Places: ${CTX}`;
+const Q=["I have ₹2000 for 2 people, what can we see?","How to reach Morni cheaply?","Budget for a family of 4, 2 days?","Tell me about Bhima Devi temple"];
+$("qs").innerHTML=Q.map(q=>`<button class="chip">${q}</button>`).join("");
+$("qs").onclick=e=>{if(e.target.className==="chip"){$("q").value=e.target.textContent;ask()}};
+let hist=[],sample=null;
+claude?.use?.("sample").then(s=>{sample=s;if(!s)$("note").textContent="AI chat is unavailable in this view, but the Budget Planner above works fully."}).catch(()=>{});
+function add(c,t){const d=document.createElement("div");d.className="m "+c;d.textContent=t;$("log").appendChild(d);$("log").scrollTop=1e9;return d}
+async function ask(){const q=$("q").value.trim();if(!q)return;$("q").value="";add("u",q);
+ const out=add("a","Thinking...");
+ if(!sample){out.textContent="The AI guide isn’t available here. Use the Budget Planner above to build a plan by budget.";return}
+ hist.push({role:"user",content:q});
+ try{const r=await sample([{role:"user",content:SYS+"\n\nConversation so far then answer the last question."},{role:"assistant",content:"Understood."},...hist.slice(-8)],{cache:false,onText:({text})=>{out.textContent=text}});
+  out.textContent=r.text;hist.push({role:"assistant",content:r.text})}catch(e){hist.pop();out.textContent=e.code==="not_granted"?"Permission for the AI guide was declined.":"Sorry, the guide is busy. Please try again shortly."}}
+$("send").onclick=ask;$("q").onkeydown=e=>{if(e.key==="Enter")ask()};
+</script></body></html>
